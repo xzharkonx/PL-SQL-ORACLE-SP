@@ -18,11 +18,14 @@ DECLARE
     -- Campo de Tipo texto (Defenimos el tamanio del campo).
         -- Tambien puede llevar 'not null' (no permitir valores nulos).
         -- Tambien puede ser de tipo unico 'unique' (no permitir valores repetidos).
+        
     -- Campo de Tipo Booleano (True or False).
         -- Tambien puede llevar 'not null' (no permitir valores nulos).
+        
     -- Campo de Tipo fecha (dia-mes-anio)(01-01-1999).
         -- Con 'sysdate' tomara la fecha de la base de datos y la colocara ahi.
             -- fecha := sysdate;
+
         -- O bien una fecha entre "".
             -- Por ejemplo: "31-12-2022"
     
@@ -35,11 +38,12 @@ DECLARE
 -- Aquí empieza nuestro código.
 BEGIN
 
--- Utiliamos las variables.
+-- Utilizamos las variables.
     
     nombreEmpleado := 'Luis Eduardo Garcia Mercado';
     activo := true;
-    fecha:= '31-12-2022';
+    -- fecha := '31-12-2022';
+    fecha := SYSDATE;    
     
     -- Impresión en consola.
     -- Para concatenar con ||
@@ -53,7 +57,7 @@ BEGIN
     -- en el tipo de dato al quererlo imprimir. 
     -- Asi que lo evaluamos primero y devolvemos una respuesta en string
     -- dependiendo su valor, es parecido al if del operador ternario pues es programacion funcional/declarativa.
-    dbms_output.put_line('Activo: ' || case when activo then 'Si' else 'No' end);
+    dbms_output.put_line('Activo: ' || CASE WHEN activo THEN 'Si' ELSE 'No' END);
     
 END;
 -- Fin del procedimiento.
